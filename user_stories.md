@@ -12,7 +12,7 @@ As a business owner I want to...
   3) allow users to pick favorite of 3 items
   4) images to be the same size (also aspect ratio)
   5) hide results from user
-  6) after all images are voted on, present button that allows user to view results
+  6) after all images are voted on, present button that allows user to view results (hidden)
 
 
 As a developer I want to...
