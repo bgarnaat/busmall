@@ -45,6 +45,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 img {
@@ -53,8 +54,16 @@ img {
 }
 
 #results_tbl {
-  width: 100%;
+  width: 80%;
   border-top: 1px solid lightgrey;
+}
+
+#chart_bar {
+  width: 20%;
+}
+
+#chart_polar {
+  width: 80%
 }
 
 table {
@@ -66,7 +75,7 @@ table {
 }
 
 .show {
-  width: 100%;*/
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
