@@ -1,36 +1,5 @@
 'use strict';
 
-// create page layout containers
-  // header
-    // include instructions
-  // section (images) (apply flexbox)
-    // three images.  space with flexbox
-  // section (results)
-    // table
-  //
-
-
-// * PRODUCT OBJECTS:
-  // * create object constructor to create object for each image
-    // * product name
-    // * file path
-    // * clicks received
-  // * arrays to store data input
-  // * create each image object
-  // * store product objects in array
-
-// EVENT HANDLERS:
-  // set up event handlers
-    // * click on item (attach to parent)
-      // * incriment item click counter
-      // * refresh images
-      // after X rounds of voting, display results button (reveal hidden button)
-  // * attach event handlers
-
-// RESULTS TABLE
-  // sort results by product name
-  // sort by popularity
-  // modular table creation
 
 var data_name = ['bag', 'banana', 'boots', 'chair', 'cthulhu', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'tentacle', 'unicorn', 'watering can', 'wine glass'];
 var data_path = ['img/bag.jpg', 'img/banana.jpg', 'img/boots.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/sweep.jpg', 'img/usb.jpg', 'img/unicorn.jpg', 'img/water-can.jpg', 'img/wine-glass.jpg'];
@@ -145,7 +114,6 @@ function displayTable() {
       tr.appendChild(td_4);
     // }
     tbl.appendChild(tr);
-
   }
   document.getElementById('results_tbl').parentNode.className = 'show';
   results.removeEventListener('click', displayTable)
