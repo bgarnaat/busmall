@@ -1,10 +1,5 @@
 FILE TO STORE USER STORIES
 
- # TEXT
- ### TEXT 2
- +++ TEXT 3 +++
- * TEXT 4
-
 
 As a business owner I want to...
   1) gather data on products most likely to sell
