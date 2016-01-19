@@ -2,32 +2,35 @@ FILE TO STORE USER STORIES
 
 
 As a business owner I want to...
-  1) gather data on products most likely to sell
-  2) display three pictures side by side
-  3) allow users to pick favorite of 3 items
-  4) images to be the same size (also aspect ratio)
-  5) hide results from user
-  6) after all images are voted on, present button that allows user to view results (hidden)
-  7) include chart to display results using chart.js and canvas
+  * gather data on products most likely to sell
+  * display three pictures side by side
+  * allow users to pick favorite of 3 items
+  * images to be the same size (also aspect ratio)
+  * hide results from user
+  * after all images are voted on, present button that allows user to view results (hidden)
+  * include chart to display results using chart.js and canvas
+  * I want a logo on my page.
 
 
 As a developer I want to...
-  1) design an attractive layout
-  2) display three product images on screen
-  3) add an event handler to record which image a user clicks on
-  4) create an object for each image
+  * design an attractive layout
+  * display three product images on screen
+  * add an event handler to record which image a user clicks on
+  * create an object for each image
       * image name
       * image path
       * number of clicks
-      *
-  5)
+      * percent of times shown image was clicked (add appearance counter)
+  * all images to appear at least once.  (used_once counter + if (used_once < prod.length) then... stuff.   Add used_once to objects.)
+  * cell phone functionality and design?
+  * mouse over event (alt text)
 
 
 As a user I want...
-  1) CLICK ALL THE THINGS \o/
-  2) CLICK MORE THINGS \o/
-  3) an attractive page layout
-  4) an easy to use UI
+  * CLICK ALL THE THINGS \o/
+  * CLICK MORE THINGS \o/
+  * an attractive page layout
+  * an easy to use UI
 
 
 OTHER:
