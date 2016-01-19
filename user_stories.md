@@ -13,6 +13,7 @@ As a business owner I want to...
   4) images to be the same size (also aspect ratio)
   5) hide results from user
   6) after all images are voted on, present button that allows user to view results (hidden)
+  7) include chart to display results using chart.js and canvas
 
 
 As a developer I want to...
