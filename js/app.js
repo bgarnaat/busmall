@@ -112,7 +112,7 @@ function createCell(tr, content) {
   tr.appendChild(td);
 }
 function displayChart() {
-  var array_bar = [[], [], []];
+  var array_bar = [[], []];
   for (var i = 0; i < prod.length; i++) {
     array_bar[0].push(prod[i].prod_name);
     array_bar[1].push(prod[i].prod_clicks);
