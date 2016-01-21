@@ -19,3 +19,6 @@ Changelog (2016/01/19):
   * updated README
   * added some words to User Stories
   * realized lunch was forgotten...
+
+Changelog (2016/01/20):
+  * took the chainsaw to the code!  Manual weight loss strategy.  (app_2.js)
