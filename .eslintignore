@@ -1,0 +1,10 @@
+**.md
+**.html
+**.css
+.gitignore
+css/**
+img/**
+js/chart.js
+.DS_Store
+.eslintrc
+.eslintignore
