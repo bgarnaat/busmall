@@ -84,3 +84,9 @@ table {
 .show_img {
   display: inline-block;
 }
+
+.go_places {
+  width: 95%
+  margin: 1%;
+  background-color: darkgrey;
+}

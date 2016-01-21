@@ -21,28 +21,38 @@ for (var i = 0; i < data_name.length; i++) {
   prod.push(new Product(data_name[i], data_path[i]));
 }
 
-window.addEventListener('load', addThreeImage);
-window.addEventListener('load', attachHandler);
-results.addEventListener('click', displayTable);
-results.addEventListener('click', displayChart);
-results.addEventListener('click', displayChartPolar);
+window.addEventListener('load', pageLoad);
+results.addEventListener('click', resultHandler);
 reset.addEventListener('click', refresh);
 
+function pageLoad() {
+  addThreeImage();
+  attachHandler();
+}
 function refresh() {
   window.location.reload();
 }
-function tally(e) {
-  prod[event.target.className].prod_clicks++;
-  counter_rounds++;
-
-  if (counter_rounds === 15) {
-    for (var i = 0; i< data_name.length; i++) {
-      var check_NaN = (prod[i].prod_clicks / prod[i].prod_appear * 100).toFixed(2);
-      prod[i].prod_percent = ((!isNaN(check_NaN)) ? check_NaN : check_NaN = 0);
+function resultHandler() {
+  displayTable();
+  displayChart();
+  displayChartPolar();
+}
+function clickHandler(e) {
+  var e_id = event.target.id;
+  if (e_id === 'image_1' || e_id === 'image_2' || e_id === 'image_3') {
+    prod[(e_id === 'image_1' ? img_index[0] : (e_id === 'image_2' ? img_index[1] : (e_id === 'image_3' ? img_index[2] : -1)))].prod_clicks++;
+    counter_rounds++;
+    if (counter_rounds === 15) {
+      for (var i = 0; i< data_name.length; i++) {
+        var check_NaN = (prod[i].prod_clicks / prod[i].prod_appear * 100).toFixed(2);
+        prod[i].prod_percent = ((!isNaN(check_NaN)) ? check_NaN : check_NaN = 0);
+      }
+      detachHandler();
+      hideImages();
+      showResultsButton();
+    } else {
+      addThreeImage();
     }
-    detachHandler();
-    hideImages();
-    showResultsButton();
   }
 }
 
@@ -57,28 +67,25 @@ function addThreeImage() {
   while (img_index[2] === img_index[0] || img_index[2] === img_index[1]) {
     img_index[2] = getRandom();
   };
-  var counter_img = 0;
-  addRandImage(++counter_img, img_index[0]);
-  addRandImage(++counter_img, img_index[1]);
-  addRandImage(++counter_img, img_index[2]);
+  img_index.forEach(function(item, index, array) {
+    addRandImage(array[index], index);
+  });
 };
 
 function getRandom() {
   return Math.floor(Math.random() * prod.length);
 };
-function addRandImage(counter_img, img_path) {
-  var img = document.getElementById('image_' + counter_img);
-  img.className = img_path;
-  img.src = data_path[img_path];
-  prod[img_path].prod_appear++;
+function addRandImage(img_index, index) {
+  var img = document.getElementById('image_' + (index + 1));
+  // img.className = img_index;
+  img.src = data_path[img_index];
+  prod[img_index].prod_appear++;
 }
 function attachHandler() {
-  image_container.addEventListener('click', tally);
-  image_container.addEventListener('click', addThreeImage);
+  image_container.addEventListener('click', clickHandler);
 }
 function detachHandler() {
-  image_container.removeEventListener('click', tally);
-  image_container.removeEventListener('click', addThreeImage);
+  image_container.removeEventListener('click', clickHandler);
 }
 function showResultsButton() {
   var button = document.getElementById('results_button');
@@ -92,14 +99,13 @@ function displayTable() {
   var tbl = document.getElementById('results_body');
   for (var i = 0; i< data_name.length; i++) {
     var content = [prod[i].prod_name, prod[i].prod_clicks, prod[i].prod_appear, prod[i].prod_percent];
-    createRow(tbl, i, content);
+    createRow(tbl, content);
   }
   document.getElementById('results_tbl').parentNode.className = 'show';
-  results.removeEventListener('click', displayTable);
-  // display the polar section of doom too! \o/
+  results.removeEventListener('click', resultHandler);
   document.getElementById('chart_polar').parentNode.className = 'show';
 }
-function createRow(tbl, i, content) {
+function createRow(tbl, content) {
   var tr = document.createElement('tr');
   tbl.appendChild(tr);
   for (var j = 0; j < prod.length; j++) {
@@ -112,12 +118,12 @@ function createCell(tr, content) {
   tr.appendChild(td);
 }
 function displayChart() {
-  var array_bar = [[], []];
+  var array_bar = [[], [], []];
   for (var i = 0; i < prod.length; i++) {
     array_bar[0].push(prod[i].prod_name);
     array_bar[1].push(prod[i].prod_clicks);
+    array_bar[2].push(prod[i].prod_appear);
   }
-  // do some stuff and make like 9001 charts appear.  9000 of which are polar area.  because polar area.
   var data_bar = {
     labels: array_bar[0],
     datasets : [
@@ -125,6 +131,11 @@ function displayChart() {
         fillColor : "#48A497",
         strokeColor : "#48A4D1",
         data: array_bar[1]
+      },
+      {
+        fillColor : "#b4b4ff",
+        strokeColor : "#b4b4ff",
+        data: array_bar[2]
       }
     ]
   }
@@ -146,7 +157,6 @@ function displayChartPolar() {
   var chart_polar = document.getElementById("chart_polar").getContext("2d");
   new Chart(chart_polar).PolarArea(data_polar);
 }
-
 function getRandomColor() {
   return Math.floor(Math.random()*16777215).toString(16);
 }
