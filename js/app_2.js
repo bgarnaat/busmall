@@ -41,27 +41,27 @@ function addThreeImage() {
   });
   while (img_index[1] === img_index[0]) {
     img_index[1] = getRandom();
-  };
+  }
   while (img_index[2] === img_index[0] || img_index[2] === img_index[1]) {
     img_index[2] = getRandom();
-  };
+  }
   img_index.forEach(function (item, index, array) {
     document.getElementById('image_' + (index + 1)).src = prod[array[index]].prod_path;
   });
-};
+}
 function getRandom() {
   return Math.floor(Math.random() * prod.length);
-};
+}
 function displayChart() {
   var data_bar = {
     labels: array_bar[0],
     datasets : [
       {
-        fillColor : "#48A497",
-        strokeColor : "#48A4D1",
+        fillColor : '#48A497',
+        strokeColor : '#48A4D1',
         data: array_bar[1]
       },
     ]
   }
-  new Chart(document.getElementById("chart_bar").getContext("2d")).Bar(data_bar);
+  new Chart(document.getElementById('chart_bar').getContext('2d')).Bar(data_bar);
 }

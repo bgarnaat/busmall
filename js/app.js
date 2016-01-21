@@ -63,18 +63,18 @@ function addThreeImage() {
   });
   while (img_index[1] === img_index[0]) {
     img_index[1] = getRandom();
-  };
+  }
   while (img_index[2] === img_index[0] || img_index[2] === img_index[1]) {
     img_index[2] = getRandom();
-  };
+  }
   img_index.forEach(function(item, index, array) {
     addRandImage(array[index], index);
   });
-};
+}
 
 function getRandom() {
   return Math.floor(Math.random() * prod.length);
-};
+}
 function addRandImage(img_index, index) {
   var img = document.getElementById('image_' + (index + 1));
   // img.className = img_index;
@@ -128,18 +128,18 @@ function displayChart() {
     labels: array_bar[0],
     datasets : [
       {
-        fillColor : "#48A497",
-        strokeColor : "#48A4D1",
+        fillColor: '#48A497',
+        strokeColor: '#48A4D1',
         data: array_bar[1]
       },
       {
-        fillColor : "#b4b4ff",
-        strokeColor : "#b4b4ff",
+        fillColor: '#b4b4ff',
+        strokeColor: '#b4b4ff',
         data: array_bar[2]
       }
     ]
   }
-  var chart_bar = document.getElementById("chart_bar").getContext("2d");
+  var chart_bar = document.getElementById('chart_bar').getContext('2d');
   new Chart(chart_bar).Bar(data_bar);
 }
 function displayChartPolar() {
@@ -149,12 +149,12 @@ function displayChartPolar() {
       {
         value: prod[i].prod_clicks,
         color: '#' + getRandomColor(),
-        highlight: "#000000",
+        highlight: '#000000',
         label: prod[i].prod_name
       }
     );
   }
-  var chart_polar = document.getElementById("chart_polar").getContext("2d");
+  var chart_polar = document.getElementById('chart_polar').getContext('2d');
   new Chart(chart_polar).PolarArea(data_polar);
 }
 function getRandomColor() {
