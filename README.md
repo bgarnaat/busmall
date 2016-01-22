@@ -22,3 +22,7 @@ Changelog (2016/01/19):
 
 Changelog (2016/01/20):
   * took the chainsaw to the code!  Manual weight loss strategy.  (app_2.js)
+
+  Changelog (2016/01/21):
+  * added local storage to application
+  * added button to clear local storage
