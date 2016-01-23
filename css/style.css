@@ -18,10 +18,6 @@ section {
   align-items: center;
 }
 
-article {
-  /*width: auto;*/
-}
-
 div {
   width: 300px;
 }
@@ -54,12 +50,12 @@ img {
 }
 
 #results_tbl {
-  width: 80%;
+  width: 60%;
   border-top: 1px solid lightgrey;
 }
 
 #chart_bar {
-  width: 20%;
+  width: 40%;
 }
 
 #chart_polar {
